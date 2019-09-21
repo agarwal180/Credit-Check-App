@@ -3,7 +3,6 @@
         <!--AURA ATTRIBUTES START -->
         <aura:attribute name="recordId" type="String" />
         <aura:attribute name="Subject" type="String" />
-        <aura:attribute name="Test" type="String" />
         <aura:attribute name="CreditCheckStatus" type="String" />
         <aura:attribute name="CreditCheckStatusList" type="String[]" default="None,Approved,Rejected"/>
         <!--AURA ATTRIBUTES ENDS -->
