@@ -1,0 +1,33 @@
+<aura:component controller="CreditCheck" implements="flexiPage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" access="global">
+        
+        <!--AURA ATTRIBUTES START -->
+        <aura:attribute name="recordId" type="String" />
+        <aura:attribute name="Subject" type="String" />
+        <aura:attribute name="CreditCheckStatus" type="String" />
+        <aura:attribute name="CreditCheckStatusList" type="String[]" default="None,Approved,Rejected"/>
+        <!--AURA ATTRIBUTES ENDS -->
+        <!--Create Case -->
+        <lightning:card title="Create New Case">
+        <lightning:recordForm recordId="{!v.recordId}" objectApiName="Account"/>
+        <div aura:id="formDiv" class="slds-size_1-of-1 slds-p-around_medium">
+                <lightning:input aura:id="Subject"
+                                 type="input"
+                                 label="Subject"
+                                 value="{!v.Subject}"
+                                 required="true"
+                                 messageWhenValueMissing="Enter Subject"/>
+                <lightning:select value="{!v.CreditCheckStatus}" name="CreditCheckStatus" label="Credit Check Status" required="true">
+                                        <aura:iteration items="{!v.CreditCheckStatusList}" var="CCS">
+                                                <option text="{!CCS}"></option>
+                                            </aura:iteration>
+                                    </lightning:select>            
+    
+             
+                <lightning:button class="slds-m-top_small" 
+                                  label="Create Case"
+                                  variant="brand"
+                                  onclick="{!c.saveRecord}"/>
+            </div>
+        </lightning:card>
+        <!--End Create Case -->
+</aura:component>
