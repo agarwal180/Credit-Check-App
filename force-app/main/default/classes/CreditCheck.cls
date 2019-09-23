@@ -1,19 +1,22 @@
+/* Class Name: CreditCheck
+* Rev. History:
+* Sno.		Date			Updated By			Changes Made
+* 1		23/09/2019		Subham Agarwal		CreditCheck class Created.
+* @Author: Subham Agarwal
+* @Created Date: 23/09/2019
+*/
+
 public class CreditCheck {
 
-    // This method is to create case and update field on Account
+    // This method is to create case and update Credit Check Status field on Account
     @AuraEnabled
     public static String createCase(String accid,String subject,String CreditCheckStatus)
     {
-         // Created by Shubham Agarwal
-         /**
-         *
-         *@author: SHubh
-          */  
             String message;
-            Case cs=new Case();
-            cs.Subject=subject;
-            cs.Credit_Check_Status__c=CreditCheckStatus;
-            cs.Accountid=accid;
+            Case cs = new Case();
+            cs.Subject = subject;
+            cs.Credit_Check_Status__c = CreditCheckStatus;
+            cs.Accountid = accid;
         Database.saveResult sr = Database.insert(cs,false);
         if(!sr.isSuccess()){
             for(Database.error err : sr.getErrors()){
@@ -28,8 +31,7 @@ public class CreditCheck {
             }
             update accListupdate;
          
-        return message;
-          //  Account acc=new Account();
+    return message;
     }
         
 }
