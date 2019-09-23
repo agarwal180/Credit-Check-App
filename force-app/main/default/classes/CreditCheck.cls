@@ -1,8 +1,14 @@
 public class CreditCheck {
+
+    // This method is to create case and update field on Account
     @AuraEnabled
     public static String createCase(String accid,String subject,String CreditCheckStatus)
     {
-           
+         // Created by Shubham Agarwal
+         /**
+         *
+         *@author: SHubh
+          */  
             String message;
             Case cs=new Case();
             cs.Subject=subject;
